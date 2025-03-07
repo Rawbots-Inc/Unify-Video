@@ -23,7 +23,7 @@ export function init() {
   const args = parseArgs(Bun.argv);
 
   const debugMode = false || args.get("debug");
-  const port = parseInt(args.get("port")) || "5000";
+  const port = "5001";
 
   function log(...args: unknown[]) {
     if (debugMode) {
