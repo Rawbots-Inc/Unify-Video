@@ -20,7 +20,7 @@ if [ ! -f .env.production ]; then
   echo "Creating production environment file..."
   cat > .env.production << EOL
 VITE_SERVER_PORT=5000
-VITE_WS_REMOTE_URL=ws://199.195.150.143:5000
+VITE_WS_REMOTE_URL=http://146.190.192.108:5000
 VITE_DEBUG_MODE=true
 VITE_PEERJS_HOST=
 VITE_PEERJS_PORT=
@@ -47,13 +47,15 @@ sleep 3
 # Serve the client build
 echo "Serving client on port 5173..."
 cd ../client
+rm .env
+cp .env.example .env
 nohup serve -s dist -l 5173 > client.log 2>&1 &
 CLIENT_PID=$!
 echo "Client started with PID: $CLIENT_PID"
 
 echo "Deployment complete!"
-echo "Server running on http://199.195.150.143:5000"
-echo "Client running on http://199.195.150.143:5173"
+echo "Server running on http://146.190.192.108:5000"
+echo "Client running on http://146.190.192.108:5173"
 echo ""
 echo "To view server logs: tail -f server/server.log"
 echo "To view client logs: tail -f client/client.log" 
