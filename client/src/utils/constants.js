@@ -21,7 +21,7 @@ export const peer = new Peer({
     ],
     iceCandidatePoolSize: 10,
   },
-  debug: debugMode ? 3 : 0,
+  debug: 3,
 });
 
 // Make sure we're using the correct server port from environment variables
